@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Standard Meta -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Site Properties -->
+<title>Login Example - Semantic</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+<style type="text/css">
+body {
+	background-color: #DADADA;
+}
+
+body>.grid {
+	height: 100%;
+}
+
+.image {
+	margin-top: -100px;
+}
+
+.column {
+	max-width: 450px;
+}
+
+/* .text.container {
+	margin-top: 6%;
+} */
+.ui.raised.card {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+
+	<div class="ui menu">
+		<!-- ui fixed menu -->
+		<div class="ui container">
+			<a href="#" class="header item">News App </a> <a href="#"
+				class="item"> <select class="ui search selection dropdown"
+				id="country-select" name="country">
+					<option value="">Country</option>
+					<option value="in">India</option>
+					<option value="de">Germany</option>
+					<option value="us">USA</option>
+					<option value="au">Australia</option>
+
+			</select>
+			</a> <a href="#" class="item"> <select
+				class="ui search selection dropdown" id="category-select"
+				name="category">
+					<option value="">Category</option>
+					<option value="business">Business</option>
+					<option value="entertainment">Entertainment</option>
+					<option value="health">Health</option>
+					<option value="general">General</option>
+					<option value="science">Science</option>
+					<option value="sports">Sports</option>
+					<option value="technology">Technology</option>
+			</select>
+			</a> <a href="#" class="item">
+				<div class="ui fluid large blue submit button" id="submit">Search</div>
+			</a>
+
+		</div>
+	</div>
+
+	<div class="ui main text container" id="app">
+		<!-- <h1 class="ui header">Semantic UI Fixed Template</h1>
+		<p>This is a basic fixed menu template using fixed size
+			containers.</p>
+		<p>A text container is used for the main container, which is
+			useful for single column layouts</p>
+		<img class="wireframe"
+			src="assets/images/wireframe/media-paragraph.png"> <img
+			class="wireframe" src="assets/images/wireframe/paragraph.png">
+		<img class="wireframe" src="assets/images/wireframe/paragraph.png">
+		<img class="wireframe" src="assets/images/wireframe/paragraph.png">
+		<img class="wireframe" src="assets/images/wireframe/paragraph.png">
+		<img class="wireframe" src="assets/images/wireframe/paragraph.png">
+		<img class="wireframe" src="assets/images/wireframe/paragraph.png"> -->
+
+
+		<div class="ui raised card" v-for="result in results" style="display:none">
+			<div class="content">
+				<div class="header">{{ result.title }}</div>
+				<div class="meta">{{ result.author }}</div>
+				<div class="description">{{ result.description }}</div>
+			</div>
+			<div class="extra content">
+
+				<div class="description">{{ result.content }}</div>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+	<!-- <script type="text/javascript">
+		/* $("#submit").click(function() {
+			alert("Handler for .click() called.");
+		}); */
+
+		$('.ui.dropdown').dropdown();
+	</script> -->
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/app.js}"></script>
+</body>
+
+</html>
