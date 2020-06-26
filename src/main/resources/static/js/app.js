@@ -53,6 +53,7 @@ $("#submit").click(function () {
 	} else {
 		processForReselection();	
 	}
+	
 });
 
 let count = 1;
