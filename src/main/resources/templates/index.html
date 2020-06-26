@@ -38,7 +38,7 @@ body>.grid {
 </head>
 <body>
 
-	<div class="ui menu">
+	<div class="ui stackable container menu">
 		<!-- ui fixed menu -->
 		<div class="ui container">
 			<a href="#" class="header item">News App </a> <a href="#"
@@ -86,11 +86,16 @@ body>.grid {
 		<img class="wireframe" src="assets/images/wireframe/paragraph.png"> -->
 
 
-		<div class="ui raised card" v-for="result in results" style="display:none">
+		<div class="ui raised card" v-for="result in results"
+			style="display: none">
 			<div class="content">
 				<div class="header">{{ result.title }}</div>
 				<div class="meta">{{ result.author }}</div>
-				<div class="description">{{ result.description }}</div>
+				<div class="description">
+
+					<img alt="Source Image" v-bind:src=result.urlToImage
+						style="max-width: 100%;"> <br /> {{result.description }}
+				</div>
 			</div>
 			<div class="extra content">
 
@@ -100,7 +105,20 @@ body>.grid {
 
 	</div>
 
+	<div th:fragment="footer" class="ui inverted vertical footer segment"
+		style="margin-top: 30%">
+		<div class="ui center aligned container">
 
+			<h4 class="ui inverted header">Developed by Shubham Arora</h4>
+			<p>This is a simple application made using Spring Boot, Postgres
+				Database, JPA & hibernate. The UI is made using thymeleaf and
+				Semantic UI.</p>
+			<p>It uses heroku connect to sync data between Postgres DB and
+				Salesforce.</p>
+			<p>So, whenever you save or edit a contact, the same data is
+				saved to Salesforce.</p>
+		</div>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
 		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
