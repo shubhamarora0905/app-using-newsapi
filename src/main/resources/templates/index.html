@@ -35,6 +35,20 @@ body>.grid {
 .ui.raised.card {
 	width: 100%;
 }
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	padding-bottom: 60px;
+}
+
+footer {
+	bottom: 0;
+	width: 100%;
+}
 </style>
 </head>
 
@@ -79,13 +93,15 @@ body>.grid {
 			<div class="ui raised card" v-for="result in results"
 				style="display: none">
 				<div class="content">
-					<div class="header">{{ result.title }}</div>
+					<a class="header" target="blank" v-bind:href=result.url>{{
+						result.title }}</a>
 					<div class="meta">{{ result.author }}</div>
 					<div class="description">
 
-						<img alt="Source Image" v-bind:src=result.urlToImage
-							style="max-width: 100%;"> <br />
-						<br />
+						<a class="header" target="blank" v-bind:href=result.url> <img
+							alt="Source Image" v-bind:src=result.urlToImage
+							style="max-width: 100%;">
+						</a><br /> <br />
 						<p></p>
 						{{result.description }}
 					</div>
@@ -103,12 +119,17 @@ body>.grid {
 	<div id="clonableCard" class="ui raised card" v-for="result in results"
 		style="display: none">
 		<div class="content">
-			<div class="header">{{ result.title }}</div>
+			<a class="header" target="blank" v-bind:href=result.url>{{
+				result.title }}</a>
 			<div class="meta">{{ result.author }}</div>
 			<div class="description">
 
-				<img alt="Source Image" v-bind:src=result.urlToImage
-					style="max-width: 100%;"> <br /> {{result.description }}
+				<a class="header" target="blank" v-bind:href=result.url> <img
+					alt="Source Image" v-bind:src=result.urlToImage
+					style="max-width: 100%;">
+				</a><br /> <br />
+				<p></p>
+				{{result.description }}
 			</div>
 		</div>
 		<div class="extra content">
@@ -116,21 +137,31 @@ body>.grid {
 			<div class="description">{{ result.content }}</div>
 		</div>
 	</div>
-	<div th:fragment="footer" class="ui inverted vertical footer segment"
-		style="margin-top: 35%">
-		<div class="ui center aligned container">
+	<footer>
+		<div th:fragment="footer" class="ui inverted vertical footer segment"
+			style="margin-top: 50%">
+			<div class="ui center aligned container">
 
-			<h4 class="ui inverted header">Developed by Shubham Arora</h4>
-			<p>This is a simple application made using Spring Boot, Postgres
-				Database, JPA & hibernate. The UI is made using thymeleaf and
-				Semantic UI.</p>
-			<p>It uses heroku connect to sync data between Postgres DB and
-				Salesforce.</p>
-			<p>So, whenever you save or edit a contact, the same data is
-				saved to Salesforce.</p>
+				<h4 class="ui inverted header">Developed by Shubham Arora</h4>
+				<p>
+					This is a simple application made using <a
+						href="https://newsapi.org/" target="blank">NewsAPI</a>
+				</p>
+				<p>
+					<a href="https://github.com/shubhamarora0905/app-using-newsapi/" target="blank">View
+						code on GitHub</a>
+				</p>
+				<p>
+					<a
+						href="https://heroku.com/deploy?template=https://github.com/shubhamarora0905/app-using-newsapi" target="blank">
+						<img src="https://www.herokucdn.com/deploy/button.svg"
+						alt="Deploy">
+					</a>
+				</p>
+
+			</div>
 		</div>
-	</div>
-
+	</footer>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
 		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 		crossorigin="anonymous"></script>

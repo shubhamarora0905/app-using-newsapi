@@ -35,6 +35,19 @@ function getDataFromWebService(a) {
 //getDataFromWebService();
 
 $("#submit").click(function () {
+	let countryLet = $("#country-select").val();
+	let categoryLet = $("#category-select").val();
+
+	if(countryLet == "") {
+		alert("Country not selected.");
+		return;
+	}
+	
+	if(categoryLet == "") {
+		alert("Category not selected");
+		return;
+	}
+
 	if($('.card').length < 3) {
 		getDataFromWebService('#app');
 	} else {
